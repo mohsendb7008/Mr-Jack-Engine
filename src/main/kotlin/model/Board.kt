@@ -1,10 +1,13 @@
 package model
 
 object Board{
-    val map = StreetSpace.map + QuaysideSpace.map + PortSpace.map + listOf(
+
+    val cells = StreetSpace.cells + QuaysideSpace.cells + PortSpace.cells + listOf(
         LibertyIsland,
         LandExit
     ).associateBy { it.position }
-    val tiles =
-        (Tile.BuildingSite.cells + Tile.MetroEntrance.cells + Tile.GasLamp.cells + Tile.Park.cells).associate { it.position to it.tile }
+
+    val tiles: Map<Position, Tile>
+        get() = (Tile.BuildingSite.streetSpaces + Tile.MetroEntrance.streetSpaces + Tile.GasLamp.streetSpaces + Tile.Park.streetSpaces).associate { it.position to it.tile!! }
+
 }

@@ -1,3 +1,3 @@
 package model
 
-data class Position(val column: Int, val step: Int)
+data class Position(val column: Int, val row: Int)

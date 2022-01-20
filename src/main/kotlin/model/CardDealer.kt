@@ -1,16 +1,18 @@
 package model
 
-import kotlin.random.Random
+import removeRandom
 
 object CardDealer{
-    private var previousCards: MutableList<Character> = ArrayList()
 
-    fun deal(turn: Int): MutableList<Character> =
-        if(turn % 2 == 0) {
+    private var previousLeftCards: MutableList<Character> = ArrayList()
+
+    fun deal(): List<Character> =
+        if(Game.turn % 2 == 1) {
             val leftCards = Character.values().toMutableList().also { it.shuffle() }
-            previousCards.clear()
+            previousLeftCards.clear()
             for(i in 1..4)
-                previousCards.add(leftCards.removeAt(Random(leftCards.size).nextInt()))
+                previousLeftCards.add(leftCards.removeRandom())
             leftCards
-        } else previousCards
+        } else previousLeftCards
+
 }

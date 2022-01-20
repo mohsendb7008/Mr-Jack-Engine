@@ -1,77 +1,94 @@
 package model
 
-import pos
+enum class Character(isVisible: Boolean){
 
-enum class Character(cell: Cell, isVisible: Boolean, isSuspect: Boolean = true){
-    AlfredElyBeach(StreetSpace.map[5 pos 10]!!, true) {
+    AlfredElyBeach(true) {
+
         fun constructMetroEntrance(cell: StreetSpace) {
+            // TODO Add validations
             cell.tile = Tile.MetroEntrance
-            Tile.MetroEntrance.cells.add(cell)
         }
+
     },
 
-    CloudRider(StreetSpace.map[9 pos 8]!!, true) {
+    CloudRider(true) {
+
         override fun moveTo(cell: Cell) = TODO()
 
         fun constructBuildingSite(cell: StreetSpace) {
+            // TODO Add validations
             cell.tile = Tile.BuildingSite
-            Tile.BuildingSite.cells.add(cell)
         }
+
     },
 
-    LewisHowardLatimer(StreetSpace.map[5 pos 8]!!, true) {
+    LewisHowardLatimer(true) {
+
         fun installGasLamp(cell: StreetSpace) {
+            // TODO Add validations
             cell.tile = Tile.GasLamp
-            Tile.GasLamp.cells.add(cell)
         }
+
     },
 
-    MrsEmmaGrant(StreetSpace.map[10 pos 7]!!, true) {
+    MrsEmmaGrant(true) {
+
         fun createPark(cell: StreetSpace) {
-            cell.tile?.let {
-                it.cells.remove(cell)
-                cell.tile = Tile.Park
-                Tile.Park.cells.add(cell)
-            }
+            // TODO Add validations
+            cell.tile = Tile.Park
         }
+
     },
 
-    JamesHCallahan(StreetSpace.map[6 pos 9]!!, true) {
+    JamesHCallahan(true) {
+
         fun moveInvestigationTile(tile: InvestigationTile, cells: Pair<StreetSpace, StreetSpace>) {
-            tile.blockedCells = cells
+            // TODO Add validations
+            cells.first.investigationTile = tile
+            cells.second.investigationTile = tile
         }
+
     },
 
-    MonkEastman(StreetSpace.map[8 pos 5]!!, false) {
+    MonkEastman(false) {
+
         fun moveAnotherCharacter(character: Character, cell: Cell){
+            // TODO Add validations
             character.moveTo(cell)
         }
+
     },
 
-    FrancisJTumblety(StreetSpace.map[8 pos 11]!!, false) {
+    FrancisJTumblety(false) {
+
         fun hypnotize(adjacent: Character, target: Character){
+            // TODO Add validations
             adjacent.moveTo(target.cell.also { target.moveTo(adjacent.cell) })
         }
+
     },
 
-    EdwardSmith(StreetSpace.map[10 pos 9]!!, true) {
+    EdwardSmith(true) {
+
         fun moveSteamer(from: PortSpace, to: PortSpace){
+            // TODO Add validations
             from.hasSteamer = false
             to.hasSteamer = true
         }
+
     };
 
-    var cell: Cell = cell
-        private set
+    val cell: Cell
+        get() = Board.cells.values.first { it.character == this }
 
     var isVisible: Boolean = isVisible
         private set
 
-    var isSuspect: Boolean = isSuspect
+    var isSuspect: Boolean = true
         private set
 
     open fun moveTo(cell: Cell) {
-        this.cell = cell
+        cell.character = this
     }
 
     fun toggleVisibility(){
@@ -81,4 +98,5 @@ enum class Character(cell: Cell, isVisible: Boolean, isSuspect: Boolean = true){
     fun exonerate(){
         this.isSuspect = false
     }
+
 }

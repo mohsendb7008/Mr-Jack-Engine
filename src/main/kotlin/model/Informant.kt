@@ -1,12 +1,13 @@
 package model
 
-import kotlin.random.Random
+import removeRandom
 
 object Informant {
+
     var cell: Cell = LibertyIsland
         private set
 
-    var mute: Boolean = true
+    var mute: Boolean = false
 
     private val innocents: MutableList<Character> = Character.values().toMutableList().also { it.shuffle() }
 
@@ -14,7 +15,8 @@ object Informant {
         this.cell = cell
     }
 
-    fun removeJack(jack: Character): Boolean = innocents.remove(jack)
+    fun removeJack() = innocents.remove(Game.Jack)
 
-    fun leakInnocent() : Character = innocents.removeAt(Random(innocents.size).nextInt())
+    fun leakInnocent() : Character = innocents.removeRandom() // TODO Add validations (mute)
+
 }
