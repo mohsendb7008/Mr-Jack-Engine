@@ -1,4 +1,4 @@
-import exception.Assert
+import exception.mustBeEqualTo
 import model.CardDealer
 import model.Character
 import model.Game
@@ -15,7 +15,7 @@ class CardDealerTest {
             Game.turn++
             characters.addAll(CardDealer.deal())
             Game.turn++
-            Assert.thatEquals(characters, charactersSet)
+            characters mustBeEqualTo charactersSet
         }
     }
 
