@@ -2,7 +2,7 @@ package model
 
 import pos
 
-class StreetSpace private constructor(
+class StreetSpace internal constructor(
     position: Position,
     vararg adjacentPositions: Position,
     var tile: Tile? = null,

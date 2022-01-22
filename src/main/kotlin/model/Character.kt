@@ -1,6 +1,10 @@
 package model
 
-enum class Character(isVisible: Boolean){
+import kotlinx.serialization.Serializable
+import serializers.CharacterSerializer
+
+@Serializable(with = CharacterSerializer::class)
+enum class Character(isVisible: Boolean) {
 
     AlfredElyBeach(true) {
 
@@ -52,7 +56,7 @@ enum class Character(isVisible: Boolean){
 
     MonkEastman(false) {
 
-        fun moveAnotherCharacter(character: Character, cell: Cell){
+        fun moveAnotherCharacter(character: Character, cell: Cell) {
             // TODO Add validations
             character.moveTo(cell)
         }
@@ -61,7 +65,7 @@ enum class Character(isVisible: Boolean){
 
     FrancisJTumblety(false) {
 
-        fun hypnotize(adjacent: Character, target: Character){
+        fun hypnotize(adjacent: Character, target: Character) {
             // TODO Add validations
             adjacent.moveTo(target.cell.also { target.moveTo(adjacent.cell) })
         }
@@ -70,7 +74,7 @@ enum class Character(isVisible: Boolean){
 
     EdwardSmith(true) {
 
-        fun moveSteamer(from: PortSpace, to: PortSpace){
+        fun moveSteamer(from: PortSpace, to: PortSpace) {
             // TODO Add validations
             from.hasSteamer = false
             to.hasSteamer = true
@@ -88,15 +92,19 @@ enum class Character(isVisible: Boolean){
         private set
 
     open fun moveTo(cell: Cell) {
+        // TODO validate
         cell.character = this
     }
 
-    fun toggleVisibility(){
+    fun toggleVisibility() {
+        // TODO validate
         this.isVisible = !this.isVisible
     }
 
-    fun exonerate(){
+    fun exonerate() {
+        // TODO validate
         this.isSuspect = false
     }
 
+    companion object
 }
