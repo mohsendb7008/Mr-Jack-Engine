@@ -1,9 +1,6 @@
 package serializers
 
-import kotlinx.serialization.KSerializer
-import kotlinx.serialization.SerialName
-import kotlinx.serialization.Serializable
-import kotlinx.serialization.decodeFromString
+import kotlinx.serialization.*
 import kotlinx.serialization.encoding.Decoder
 import kotlinx.serialization.encoding.Encoder
 import kotlinx.serialization.json.Json
@@ -39,3 +36,5 @@ object CharacterSerializer: KSerializer<Character> {
 }
 
 fun Character.Companion.deserialize(input: String) = Json.decodeFromString<Character>(input)
+
+fun Character.serialize() = Json.encodeToString(this)

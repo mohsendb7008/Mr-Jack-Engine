@@ -1,9 +1,6 @@
 package serializers
 
-import kotlinx.serialization.KSerializer
-import kotlinx.serialization.SerialName
-import kotlinx.serialization.Serializable
-import kotlinx.serialization.decodeFromString
+import kotlinx.serialization.*
 import kotlinx.serialization.descriptors.SerialDescriptor
 import kotlinx.serialization.encoding.Decoder
 import kotlinx.serialization.encoding.Encoder
@@ -34,3 +31,5 @@ object TileSerializer: KSerializer<Tile> {
 }
 
 fun Tile.Companion.deserialize(input: String) = Json.decodeFromString<Tile>(input)
+
+fun Tile.serialize() = Json.encodeToString(this)

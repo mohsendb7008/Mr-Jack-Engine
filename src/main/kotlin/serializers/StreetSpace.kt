@@ -1,10 +1,9 @@
 package serializers
 
-import kotlinx.serialization.KSerializer
-import kotlinx.serialization.SerialName
-import kotlinx.serialization.Serializable
+import kotlinx.serialization.*
 import kotlinx.serialization.encoding.Decoder
 import kotlinx.serialization.encoding.Encoder
+import kotlinx.serialization.json.Json
 import model.*
 
 @Serializable
@@ -45,3 +44,7 @@ class StreetSpaceSerializer : KSerializer<StreetSpace> {
         )
     }
 }
+
+fun StreetSpace.Companion.deserialize(input: String) = Json.decodeFromString<StreetSpace>(input)
+
+fun StreetSpace.serialize() = Json.encodeToString(this)
