@@ -1,7 +1,10 @@
 package model
 
+import kotlinx.serialization.Serializable
 import pos
+import serializers.StreetSpaceSerializer
 
+@Serializable(with = StreetSpaceSerializer::class)
 class StreetSpace internal constructor(
     position: Position,
     vararg adjacentPositions: Position,

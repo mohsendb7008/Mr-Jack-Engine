@@ -10,7 +10,7 @@ import model.*
 @SerialName("StreetSpace")
 private class StreetSpaceSurrogate(
     val position: Position,
-    val adjacentPositions: List<Position>,
+//    val adjacentPositions: List<Position>,
     var tile: Tile? = null,
     val hasFixedTile: Boolean = false,
     val character: Character? = null,
@@ -23,7 +23,7 @@ class StreetSpaceSerializer : KSerializer<StreetSpace> {
     override fun serialize(encoder: Encoder, value: StreetSpace) {
         val surrogate = StreetSpaceSurrogate(
             value.position,
-            value.adjacentPositions,
+//            value.adjacentPositions,
             value.tile,
             value.hasFixedTile,
             value.character,
@@ -32,17 +32,7 @@ class StreetSpaceSerializer : KSerializer<StreetSpace> {
         encoder.encodeSerializableValue(StreetSpaceSurrogate.serializer(), surrogate)
     }
 
-    override fun deserialize(decoder: Decoder): StreetSpace {
-        val surrogate = decoder.decodeSerializableValue(StreetSpaceSurrogate.serializer())
-        return StreetSpace(
-            surrogate.position,
-            *surrogate.adjacentPositions.toTypedArray(),
-            tile = surrogate.tile,
-            hasFixedTile = surrogate.hasFixedTile,
-            character = surrogate.character,
-            investigationTile = surrogate.investigationTile
-        )
-    }
+    override fun deserialize(decoder: Decoder) = TODO()
 }
 
 fun StreetSpace.Companion.deserialize(input: String) = Json.decodeFromString<StreetSpace>(input)

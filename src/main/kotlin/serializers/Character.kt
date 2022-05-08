@@ -8,7 +8,7 @@ import model.Character
 
 @Serializable
 @SerialName("Character")
-private class CharacterSurrogate(val type: String, val isVisible: Boolean, val isSuspect: Boolean) {
+private class CharacterSurrogate(val type: String, val isSuspect: Boolean) {
     init {
         require(Character.values().any { it.name == type })
     }
@@ -23,14 +23,11 @@ object CharacterSerializer: KSerializer<Character> {
             if (!surrogate.isSuspect) {
                 it.exonerate()
             }
-            if (it.isVisible != surrogate.isVisible) {
-                it.toggleVisibility()
-            }
         }
     }
 
     override fun serialize(encoder: Encoder, value: Character) {
-        val surrogate = CharacterSurrogate(value.name, value.isVisible, value.isSuspect)
+        val surrogate = CharacterSurrogate(value.name, value.isSuspect)
         encoder.encodeSerializableValue(CharacterSurrogate.serializer(), surrogate)
     }
 }

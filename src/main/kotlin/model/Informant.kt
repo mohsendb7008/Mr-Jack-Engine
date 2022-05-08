@@ -1,7 +1,10 @@
 package model
 
+import kotlinx.serialization.Serializable
 import removeRandom
 
+// TODO
+@Serializable(with = Nothing::class)
 object Informant {
 
     var cell: Cell = LibertyIsland

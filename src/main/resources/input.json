@@ -1,0 +1,860 @@
+{
+    "round": 2,
+    "turn": 1,
+    "map": [
+        {
+            "type": "StreetSpace",
+            "position": {
+                "column": 1,
+                "row": 10
+            },
+            "tile": null,
+            "hasFixedTile": false,
+            "character": null,
+            "investigationTile": null
+        },
+        {
+            "type": "StreetSpace",
+            "position": {
+                "column": 2,
+                "row": 7
+            },
+            "tile": null,
+            "hasFixedTile": false,
+            "character": null,
+            "investigationTile": null
+        },
+        {
+            "type": "StreetSpace",
+            "position": {
+                "column": 2,
+                "row": 9
+            },
+            "tile": {
+                "type": "MetroEntrance"
+            },
+            "hasFixedTile": false,
+            "character": null,
+            "investigationTile": null
+        },
+        {
+            "type": "StreetSpace",
+            "position": {
+                "column": 2,
+                "row": 11
+            },
+            "tile": null,
+            "hasFixedTile": false,
+            "character": null,
+            "investigationTile": null
+        },
+        {
+            "type": "StreetSpace",
+            "position": {
+                "column": 3,
+                "row": 8
+            },
+            "tile": null,
+            "hasFixedTile": false,
+            "character": null,
+            "investigationTile": null
+        },
+        {
+            "type": "StreetSpace",
+            "position": {
+                "column": 3,
+                "row": 10
+            },
+            "tile": {
+                "type": "GasLamp"
+            },
+            "hasFixedTile": false,
+            "character": null,
+            "investigationTile": null
+        },
+        {
+            "type": "StreetSpace",
+            "position": {
+                "column": 3,
+                "row": 12
+            },
+            "tile": null,
+            "hasFixedTile": false,
+            "character": null,
+            "investigationTile": null
+        },
+        {
+            "type": "StreetSpace",
+            "position": {
+                "column": 3,
+                "row": 14
+            },
+            "tile": null,
+            "hasFixedTile": false,
+            "character": null,
+            "investigationTile": null
+        },
+        {
+            "type": "StreetSpace",
+            "position": {
+                "column": 4,
+                "row": 5
+            },
+            "tile": null,
+            "hasFixedTile": false,
+            "character": null,
+            "investigationTile": null
+        },
+        {
+            "type": "StreetSpace",
+            "position": {
+                "column": 4,
+                "row": 7
+            },
+            "tile": null,
+            "hasFixedTile": false,
+            "character": null,
+            "investigationTile": null
+        },
+        {
+            "type": "StreetSpace",
+            "position": {
+                "column": 4,
+                "row": 9
+            },
+            "tile": {
+                "type": "BuildingSite"
+            },
+            "hasFixedTile": true,
+            "character": null,
+            "investigationTile": null
+        },
+        {
+            "type": "StreetSpace",
+            "position": {
+                "column": 4,
+                "row": 11
+            },
+            "tile": {
+                "type": "BuildingSite"
+            },
+            "hasFixedTile": true,
+            "character": null,
+            "investigationTile": null
+        },
+        {
+            "type": "StreetSpace",
+            "position": {
+                "column": 4,
+                "row": 13
+            },
+            "tile": null,
+            "hasFixedTile": false,
+            "character": null,
+            "investigationTile": null
+        },
+        {
+            "type": "StreetSpace",
+            "position": {
+                "column": 4,
+                "row": 15
+            },
+            "tile": null,
+            "hasFixedTile": false,
+            "character": null,
+            "investigationTile": null
+        },
+        {
+            "type": "StreetSpace",
+            "position": {
+                "column": 5,
+                "row": 4
+            },
+            "tile": null,
+            "hasFixedTile": false,
+            "character": null,
+            "investigationTile": {}
+        },
+        {
+            "type": "StreetSpace",
+            "position": {
+                "column": 5,
+                "row": 6
+            },
+            "tile": null,
+            "hasFixedTile": false,
+            "character": null,
+            "investigationTile": null
+        },
+        {
+            "type": "StreetSpace",
+            "position": {
+                "column": 5,
+                "row": 8
+            },
+            "tile": null,
+            "hasFixedTile": false,
+            "character": {
+                "type": "LewisHowardLatimer",
+                "isSuspect": true
+            },
+            "investigationTile": null
+        },
+        {
+            "type": "StreetSpace",
+            "position": {
+                "column": 5,
+                "row": 10
+            },
+            "tile": null,
+            "hasFixedTile": false,
+            "character": {
+                "type": "AlfredElyBeach",
+                "isSuspect": true
+            },
+            "investigationTile": null
+        },
+        {
+            "type": "StreetSpace",
+            "position": {
+                "column": 5,
+                "row": 12
+            },
+            "tile": null,
+            "hasFixedTile": false,
+            "character": null,
+            "investigationTile": null
+        },
+        {
+            "type": "StreetSpace",
+            "position": {
+                "column": 5,
+                "row": 14
+            },
+            "tile": null,
+            "hasFixedTile": false,
+            "character": null,
+            "investigationTile": null
+        },
+        {
+            "type": "StreetSpace",
+            "position": {
+                "column": 6,
+                "row": 3
+            },
+            "tile": null,
+            "hasFixedTile": false,
+            "character": null,
+            "investigationTile": {}
+        },
+        {
+            "type": "StreetSpace",
+            "position": {
+                "column": 6,
+                "row": 5
+            },
+            "tile": null,
+            "hasFixedTile": false,
+            "character": null,
+            "investigationTile": null
+        },
+        {
+            "type": "StreetSpace",
+            "position": {
+                "column": 6,
+                "row": 7
+            },
+            "tile": null,
+            "hasFixedTile": false,
+            "character": null,
+            "investigationTile": null
+        },
+        {
+            "type": "StreetSpace",
+            "position": {
+                "column": 6,
+                "row": 9
+            },
+            "tile": null,
+            "hasFixedTile": false,
+            "character": {
+                "type": "JamesHCallahan",
+                "isSuspect": true
+            },
+            "investigationTile": null
+        },
+        {
+            "type": "StreetSpace",
+            "position": {
+                "column": 6,
+                "row": 11
+            },
+            "tile": null,
+            "hasFixedTile": false,
+            "character": null,
+            "investigationTile": null
+        },
+        {
+            "type": "StreetSpace",
+            "position": {
+                "column": 6,
+                "row": 13
+            },
+            "tile": null,
+            "hasFixedTile": false,
+            "character": null,
+            "investigationTile": null
+        },
+        {
+            "type": "StreetSpace",
+            "position": {
+                "column": 6,
+                "row": 15
+            },
+            "tile": null,
+            "hasFixedTile": false,
+            "character": null,
+            "investigationTile": null
+        },
+        {
+            "type": "StreetSpace",
+            "position": {
+                "column": 7,
+                "row": 4
+            },
+            "tile": null,
+            "hasFixedTile": false,
+            "character": null,
+            "investigationTile": null
+        },
+        {
+            "type": "StreetSpace",
+            "position": {
+                "column": 7,
+                "row": 6
+            },
+            "tile": null,
+            "hasFixedTile": false,
+            "character": null,
+            "investigationTile": null
+        },
+        {
+            "type": "StreetSpace",
+            "position": {
+                "column": 7,
+                "row": 8
+            },
+            "tile": {
+                "type": "MetroEntrance"
+            },
+            "hasFixedTile": true,
+            "character": null,
+            "investigationTile": null
+        },
+        {
+            "type": "StreetSpace",
+            "position": {
+                "column": 7,
+                "row": 10
+            },
+            "tile": null,
+            "hasFixedTile": false,
+            "character": null,
+            "investigationTile": null
+        },
+        {
+            "type": "StreetSpace",
+            "position": {
+                "column": 7,
+                "row": 12
+            },
+            "tile": null,
+            "hasFixedTile": false,
+            "character": null,
+            "investigationTile": null
+        },
+        {
+            "type": "StreetSpace",
+            "position": {
+                "column": 7,
+                "row": 14
+            },
+            "tile": null,
+            "hasFixedTile": false,
+            "character": null,
+            "investigationTile": null
+        },
+        {
+            "type": "StreetSpace",
+            "position": {
+                "column": 8,
+                "row": 3
+            },
+            "tile": null,
+            "hasFixedTile": false,
+            "character": null,
+            "investigationTile": null
+        },
+        {
+            "type": "StreetSpace",
+            "position": {
+                "column": 8,
+                "row": 5
+            },
+            "tile": null,
+            "hasFixedTile": false,
+            "character": {
+                "type": "MonkEastman",
+                "isSuspect": true
+            },
+            "investigationTile": null
+        },
+        {
+            "type": "StreetSpace",
+            "position": {
+                "column": 8,
+                "row": 7
+            },
+            "tile": null,
+            "hasFixedTile": false,
+            "character": null,
+            "investigationTile": null
+        },
+        {
+            "type": "StreetSpace",
+            "position": {
+                "column": 8,
+                "row": 9
+            },
+            "tile": null,
+            "hasFixedTile": false,
+            "character": null,
+            "investigationTile": null
+        },
+        {
+            "type": "StreetSpace",
+            "position": {
+                "column": 8,
+                "row": 11
+            },
+            "tile": null,
+            "hasFixedTile": false,
+            "character": {
+                "type": "FrancisJTumblety",
+                "isSuspect": true
+            },
+            "investigationTile": null
+        },
+        {
+            "type": "StreetSpace",
+            "position": {
+                "column": 8,
+                "row": 13
+            },
+            "tile": null,
+            "hasFixedTile": false,
+            "character": null,
+            "investigationTile": null
+        },
+        {
+            "type": "StreetSpace",
+            "position": {
+                "column": 9,
+                "row": 2
+            },
+            "tile": null,
+            "hasFixedTile": false,
+            "character": null,
+            "investigationTile": null
+        },
+        {
+            "type": "StreetSpace",
+            "position": {
+                "column": 9,
+                "row": 4
+            },
+            "tile": null,
+            "hasFixedTile": false,
+            "character": null,
+            "investigationTile": null
+        },
+        {
+            "type": "StreetSpace",
+            "position": {
+                "column": 9,
+                "row": 6
+            },
+            "tile": null,
+            "hasFixedTile": false,
+            "character": null,
+            "investigationTile": null
+        },
+        {
+            "type": "StreetSpace",
+            "position": {
+                "column": 9,
+                "row": 8
+            },
+            "tile": null,
+            "hasFixedTile": false,
+            "character": {
+                "type": "CloudRider",
+                "isSuspect": true
+            },
+            "investigationTile": null
+        },
+        {
+            "type": "StreetSpace",
+            "position": {
+                "column": 9,
+                "row": 10
+            },
+            "tile": null,
+            "hasFixedTile": false,
+            "character": null,
+            "investigationTile": null
+        },
+        {
+            "type": "StreetSpace",
+            "position": {
+                "column": 9,
+                "row": 12
+            },
+            "tile": null,
+            "hasFixedTile": false,
+            "character": null,
+            "investigationTile": null
+        },
+        {
+            "type": "StreetSpace",
+            "position": {
+                "column": 10,
+                "row": 3
+            },
+            "tile": null,
+            "hasFixedTile": false,
+            "character": null,
+            "investigationTile": null
+        },
+        {
+            "type": "StreetSpace",
+            "position": {
+                "column": 10,
+                "row": 5
+            },
+            "tile": {
+                "type": "BuildingSite"
+            },
+            "hasFixedTile": true,
+            "character": null,
+            "investigationTile": null
+        },
+        {
+            "type": "StreetSpace",
+            "position": {
+                "column": 10,
+                "row": 7
+            },
+            "tile": null,
+            "hasFixedTile": false,
+            "character": {
+                "type": "MrsEmmaGrant",
+                "isSuspect": true
+            },
+            "investigationTile": null
+        },
+        {
+            "type": "StreetSpace",
+            "position": {
+                "column": 10,
+                "row": 9
+            },
+            "tile": null,
+            "hasFixedTile": false,
+            "character": {
+                "type": "EdwardSmith",
+                "isSuspect": true
+            },
+            "investigationTile": null
+        },
+        {
+            "type": "StreetSpace",
+            "position": {
+                "column": 10,
+                "row": 11
+            },
+            "tile": {
+                "type": "BuildingSite"
+            },
+            "hasFixedTile": true,
+            "character": null,
+            "investigationTile": null
+        },
+        {
+            "type": "StreetSpace",
+            "position": {
+                "column": 10,
+                "row": 13
+            },
+            "tile": null,
+            "hasFixedTile": false,
+            "character": null,
+            "investigationTile": null
+        },
+        {
+            "type": "StreetSpace",
+            "position": {
+                "column": 11,
+                "row": 2
+            },
+            "tile": null,
+            "hasFixedTile": false,
+            "character": null,
+            "investigationTile": null
+        },
+        {
+            "type": "StreetSpace",
+            "position": {
+                "column": 11,
+                "row": 4
+            },
+            "tile": {
+                "type": "MetroEntrance"
+            },
+            "hasFixedTile": false,
+            "character": null,
+            "investigationTile": null
+        },
+        {
+            "type": "StreetSpace",
+            "position": {
+                "column": 11,
+                "row": 6
+            },
+            "tile": {
+                "type": "BuildingSite"
+            },
+            "hasFixedTile": true,
+            "character": null,
+            "investigationTile": null
+        },
+        {
+            "type": "StreetSpace",
+            "position": {
+                "column": 11,
+                "row": 8
+            },
+            "tile": null,
+            "hasFixedTile": false,
+            "character": null,
+            "investigationTile": null
+        },
+        {
+            "type": "StreetSpace",
+            "position": {
+                "column": 11,
+                "row": 10
+            },
+            "tile": {
+                "type": "BuildingSite"
+            },
+            "hasFixedTile": true,
+            "character": null,
+            "investigationTile": null
+        },
+        {
+            "type": "StreetSpace",
+            "position": {
+                "column": 11,
+                "row": 12
+            },
+            "tile": null,
+            "hasFixedTile": false,
+            "character": null,
+            "investigationTile": null
+        },
+        {
+            "type": "StreetSpace",
+            "position": {
+                "column": 11,
+                "row": 14
+            },
+            "tile": null,
+            "hasFixedTile": false,
+            "character": null,
+            "investigationTile": {}
+        },
+        {
+            "type": "StreetSpace",
+            "position": {
+                "column": 12,
+                "row": 3
+            },
+            "tile": null,
+            "hasFixedTile": false,
+            "character": null,
+            "investigationTile": null
+        },
+        {
+            "type": "StreetSpace",
+            "position": {
+                "column": 12,
+                "row": 5
+            },
+            "tile": null,
+            "hasFixedTile": false,
+            "character": null,
+            "investigationTile": null
+        },
+        {
+            "type": "StreetSpace",
+            "position": {
+                "column": 12,
+                "row": 7
+            },
+            "tile": null,
+            "hasFixedTile": false,
+            "character": null,
+            "investigationTile": null
+        },
+        {
+            "type": "StreetSpace",
+            "position": {
+                "column": 12,
+                "row": 9
+            },
+            "tile": null,
+            "hasFixedTile": false,
+            "character": null,
+            "investigationTile": null
+        },
+        {
+            "type": "StreetSpace",
+            "position": {
+                "column": 12,
+                "row": 11
+            },
+            "tile": null,
+            "hasFixedTile": false,
+            "character": null,
+            "investigationTile": null
+        },
+        {
+            "type": "StreetSpace",
+            "position": {
+                "column": 12,
+                "row": 13
+            },
+            "tile": {
+                "type": "MetroEntrance"
+            },
+            "hasFixedTile": false,
+            "character": null,
+            "investigationTile": null
+        },
+        {
+            "type": "StreetSpace",
+            "position": {
+                "column": 12,
+                "row": 15
+            },
+            "tile": null,
+            "hasFixedTile": false,
+            "character": null,
+            "investigationTile": {}
+        },
+        {
+            "type": "StreetSpace",
+            "position": {
+                "column": 13,
+                "row": 2
+            },
+            "tile": null,
+            "hasFixedTile": false,
+            "character": null,
+            "investigationTile": null
+        },
+        {
+            "type": "StreetSpace",
+            "position": {
+                "column": 13,
+                "row": 4
+            },
+            "tile": null,
+            "hasFixedTile": false,
+            "character": null,
+            "investigationTile": null
+        },
+        {
+            "type": "StreetSpace",
+            "position": {
+                "column": 13,
+                "row": 6
+            },
+            "tile": null,
+            "hasFixedTile": false,
+            "character": null,
+            "investigationTile": null
+        },
+        {
+            "type": "StreetSpace",
+            "position": {
+                "column": 13,
+                "row": 8
+            },
+            "tile": null,
+            "hasFixedTile": false,
+            "character": null,
+            "investigationTile": null
+        },
+        {
+            "type": "StreetSpace",
+            "position": {
+                "column": 13,
+                "row": 10
+            },
+            "tile": null,
+            "hasFixedTile": false,
+            "character": null,
+            "investigationTile": null
+        },
+        {
+            "type": "StreetSpace",
+            "position": {
+                "column": 13,
+                "row": 12
+            },
+            "tile": {
+                "type": "GasLamp"
+            },
+            "hasFixedTile": false,
+            "character": null,
+            "investigationTile": null
+        },
+        {
+            "type": "StreetSpace",
+            "position": {
+                "column": 13,
+                "row": 14
+            },
+            "tile": null,
+            "hasFixedTile": false,
+            "character": null,
+            "investigationTile": null
+        },
+        {
+            "type": "StreetSpace",
+            "position": {
+                "column": 13,
+                "row": 16
+            },
+            "tile": null,
+            "hasFixedTile": false,
+            "character": null,
+            "investigationTile": null
+        }
+    ],
+    "visibilityStatus": "Day",
+    "code": 3,
+    "description": ""
+}

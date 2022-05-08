@@ -17,10 +17,12 @@ class UsernameRole(
 
 }
 
+val json = Json { encodeDefaults = true }
+
 // Driver code to test:
 fun main() {
     val instance = UsernameRole(Role.Jack)
-    val string = Json { encodeDefaults = true }.encodeToString(instance)
+    val string = json.encodeToString(instance)
     println(string)
     Json.decodeFromString<UsernameRole>(string)
 }

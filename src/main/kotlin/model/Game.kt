@@ -17,8 +17,7 @@ object Game {
         if (turn == 4) {
             round++
             turn = 1
-        }
-        else {
+        } else {
             turn++
         }
     }
