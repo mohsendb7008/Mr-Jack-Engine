@@ -10,11 +10,10 @@ class GameTurn(
     val turn: Int,
     val map: List<Cell>,
     val visibilityStatus: VisibilityStatus,
-    val remainingCards: List<Character>,
-    val informant: Informant = Informant
+    val remainingCards: List<Character>
 ) : QA() {
     override val code = 3
-    override val description = ""
+    override val description = "Play your turn."
 }
 
 fun main() {

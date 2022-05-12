@@ -93,6 +93,7 @@ enum class Character(isVisible: Boolean) {
 
     open fun moveTo(cell: Cell) {
         // TODO validate
+        this.cell.character = null
         cell.character = this
     }
 
