@@ -1,20 +1,21 @@
 package serializers
 
+import exception.DeserializationNotSupportedException
 import kotlinx.serialization.*
 import kotlinx.serialization.encoding.Decoder
 import kotlinx.serialization.encoding.Encoder
-import kotlinx.serialization.json.Json
 import model.*
 
 @Serializable
 @SerialName("StreetSpace")
 private class StreetSpaceSurrogate(
     val position: Position,
-//    val adjacentPositions: List<Position>,
+    @Transient val adjacentPositions: List<Position> = emptyList(),
     var tile: Tile? = null,
     val hasFixedTile: Boolean = false,
     val character: Character? = null,
-    val investigationTile: InvestigationTile? = null
+    val investigationTile: InvestigationTile? = null,
+    val informant: Informant? = null
 )
 
 class StreetSpaceSerializer : KSerializer<StreetSpace> {
@@ -23,18 +24,17 @@ class StreetSpaceSerializer : KSerializer<StreetSpace> {
     override fun serialize(encoder: Encoder, value: StreetSpace) {
         val surrogate = StreetSpaceSurrogate(
             value.position,
-//            value.adjacentPositions,
+            value.adjacentPositions,
             value.tile,
             value.hasFixedTile,
             value.character,
-            value.investigationTile
+            value.investigationTile,
+            value.informant
         )
         encoder.encodeSerializableValue(StreetSpaceSurrogate.serializer(), surrogate)
     }
 
-    override fun deserialize(decoder: Decoder) = TODO()
+    override fun deserialize(decoder: Decoder) = throw DeserializationNotSupportedException("StreetSpace")
 }
 
-fun StreetSpace.Companion.deserialize(input: String) = Json.decodeFromString<StreetSpace>(input)
-
-fun StreetSpace.serialize() = Json.encodeToString(this)
+fun StreetSpace.toJson() = json.encodeToString(this)

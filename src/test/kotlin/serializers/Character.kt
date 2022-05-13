@@ -9,9 +9,9 @@ class Character {
     fun serialize() {
         val character = Character.AlfredElyBeach
         val output = """
-            {"type":"${character.name}","isVisible":${character.isVisible},"isSuspect":${character.isSuspect}}
+            {"type":"${character.name}","isSuspect":${character.isSuspect}}
         """.trimIndent()
-        output mustBeEqualTo character.serialize()
+        output mustBeEqualTo character.toJson()
     }
 
     @Test
@@ -19,9 +19,7 @@ class Character {
         val character = Character.FrancisJTumblety
         val input = """
             {
-                "type": "${character.name}",
-                "isVisible": ${character.isVisible},
-                "isSuspect": ${character.isSuspect}
+                "type": "${character.name}"
             }
         """.trimIndent()
         Character.deserialize(input) mustBeEqualTo character

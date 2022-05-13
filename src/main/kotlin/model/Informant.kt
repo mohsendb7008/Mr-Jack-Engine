@@ -2,9 +2,9 @@ package model
 
 import kotlinx.serialization.Serializable
 import removeRandom
+import serializers.InformantSerializer
 
-// TODO Write serializer and not Nothing
-@Serializable
+@Serializable(with = InformantSerializer::class)
 object Informant {
 
     var mute: Boolean = false
@@ -13,7 +13,7 @@ object Informant {
 
     fun removeJack() = innocents.remove(Game.Jack)
 
-    fun leakInnocent() : Character = innocents.removeRandom() // TODO Add validations (mute)
+    fun leakInnocent(): Character = innocents.removeRandom() // TODO Add validations (mute)
 
     private val cell: Cell
         get() = Board.cells.values.first {

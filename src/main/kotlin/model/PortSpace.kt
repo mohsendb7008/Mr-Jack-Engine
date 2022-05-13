@@ -1,10 +1,13 @@
 package model
 
+import kotlinx.serialization.Serializable
 import pos
+import serializers.PortSpaceSerializer
 
-class PortSpace private constructor(position: Position, var hasSteamer: Boolean = false): Cell(position){
+@Serializable(with = PortSpaceSerializer::class)
+class PortSpace private constructor(position: Position, var hasSteamer: Boolean = false) : Cell(position) {
 
-    companion object{
+    companion object {
 
         val cells = listOf(
             PortSpace(2 pos 13),

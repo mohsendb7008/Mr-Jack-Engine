@@ -4,7 +4,6 @@ import kotlinx.serialization.*
 import kotlinx.serialization.descriptors.SerialDescriptor
 import kotlinx.serialization.encoding.Decoder
 import kotlinx.serialization.encoding.Encoder
-import kotlinx.serialization.json.Json
 import model.Tile
 
 @Serializable
@@ -15,7 +14,7 @@ private class TileSurrogate(val type: String) {
     }
 }
 
-object TileSerializer: KSerializer<Tile> {
+object TileSerializer : KSerializer<Tile> {
     override val descriptor: SerialDescriptor = TileSurrogate.serializer().descriptor
 
     override fun serialize(encoder: Encoder, value: Tile) {
@@ -30,6 +29,6 @@ object TileSerializer: KSerializer<Tile> {
 
 }
 
-fun Tile.Companion.deserialize(input: String) = Json.decodeFromString<Tile>(input)
+fun Tile.Companion.deserialize(input: String) = json.decodeFromString<Tile>(input)
 
-fun Tile.serialize() = Json.encodeToString(this)
+fun Tile.toJson() = json.encodeToString(this)

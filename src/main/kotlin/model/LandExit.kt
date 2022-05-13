@@ -1,5 +1,7 @@
 package model
 
+import kotlinx.serialization.SerialName
 import pos
 
-object LandExit: Cell(14 pos 11)
+@SerialName("LandExit")
+object LandExit : Cell(14 pos 11)

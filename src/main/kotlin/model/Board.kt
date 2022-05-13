@@ -1,10 +1,9 @@
 package model
 
-object Board{
+object Board {
 
     val cells = StreetSpace.cells + QuaysideSpace.cells + PortSpace.cells + listOf(
-        LibertyIsland,
-        LandExit
+        LibertyIsland, LandExit
     ).associateBy { it.position }
 
     val tiles: Map<Position, Tile>

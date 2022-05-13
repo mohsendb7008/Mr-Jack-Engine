@@ -8,7 +8,7 @@ class Tile {
     @Test
     fun serialize() {
         val tile = Tile.Park
-        tile.serialize() mustBeEqualTo "{\"type\":\"${tile.name}\"}"
+        tile.toJson() mustBeEqualTo "{\"type\":\"${tile.name}\"}"
     }
 
     @Test

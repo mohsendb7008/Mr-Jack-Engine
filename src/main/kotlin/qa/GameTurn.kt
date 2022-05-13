@@ -2,7 +2,11 @@ package qa
 
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.encodeToString
-import model.*
+import model.Board
+import model.Cell
+import model.Character
+import model.VisibilityStatus
+import serializers.json
 
 @Serializable
 class GameTurn(
@@ -17,8 +21,8 @@ class GameTurn(
 }
 
 fun main() {
-    val instance = GameTurn(2, 1, StreetSpace.cells.values.toList(), VisibilityStatus.Day, Character.values().toList().take(4))
+    val instance =
+        GameTurn(2, 1, Board.cells.values.toList(), VisibilityStatus.Day, Character.values().toList().take(4))
     val string = json.encodeToString(instance)
     println(string)
-//    Json.decodeFromString<UsernameRole>(string)
 }

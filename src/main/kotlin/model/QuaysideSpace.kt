@@ -2,10 +2,11 @@ package model
 
 import pos
 
-class QuaysideSpace private constructor(position: Position,
-                                        vararg adjacentPositions: Position): Cell(position, adjacentPositions.toList()){
+class QuaysideSpace private constructor(
+    position: Position, vararg adjacentPositions: Position
+) : Cell(position, adjacentPositions.toList()) {
 
-    companion object{
+    companion object {
 
         val cells = listOf(
             QuaysideSpace(1 pos 8, 1 pos 10, 2 pos 7, 2 pos 9, 0 pos 0),
