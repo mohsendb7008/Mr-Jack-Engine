@@ -1,8 +1,10 @@
 package model
 
 import kotlinx.serialization.Serializable
+import serializers.InvestigationTileSerializer
+import toPair
 
-@Serializable
+@Serializable(with = InvestigationTileSerializer::class)
 class InvestigationTile private constructor() {
 
     companion object {
@@ -11,10 +13,7 @@ class InvestigationTile private constructor() {
     }
 
     val blockedCells: Pair<StreetSpace, StreetSpace>
-        get() = StreetSpace.cells.values.filter { it.investigationTile == this }.let {
-            val (first, second) = it
-            first to second
-        }
+        get() = StreetSpace.cells.values.filter { it.investigationTile == this }.toPair()
 
     fun moveTo(streetSpaces: Pair<StreetSpace, StreetSpace>) {
         blockedCells.toList().forEach {

@@ -1,3 +1,5 @@
+@file:OptIn(ExperimentalSerializationApi::class)
+
 package serializers
 
 import exception.DeserializationNotSupportedException
@@ -10,7 +12,9 @@ import model.Position
 @Serializable
 @SerialName("PortSpace")
 private class PortSpaceSurrogate(
-    val position: Position, @Transient val adjacentPositions: List<Position> = emptyList(), val hasSteamer: Boolean
+    val position: Position,
+    @Transient val adjacentPositions: List<Position> = emptyList(),
+    @EncodeDefault(mode = EncodeDefault.Mode.NEVER) val hasSteamer: Boolean = false
 )
 
 class PortSpaceSerializer : KSerializer<PortSpace> {

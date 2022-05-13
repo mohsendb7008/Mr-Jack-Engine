@@ -1,3 +1,5 @@
+@file:OptIn(ExperimentalSerializationApi::class)
+
 package serializers
 
 import exception.DeserializationNotSupportedException
@@ -12,7 +14,7 @@ private class StreetSpaceSurrogate(
     val position: Position,
     @Transient val adjacentPositions: List<Position> = emptyList(),
     var tile: Tile? = null,
-    val hasFixedTile: Boolean = false,
+    @EncodeDefault(mode = EncodeDefault.Mode.NEVER) val hasFixedTile: Boolean = false,
     val character: Character? = null,
     val investigationTile: InvestigationTile? = null,
     val informant: Informant? = null
