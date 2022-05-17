@@ -3,11 +3,9 @@ package qa
 import model.Character
 import model.Position
 import qa.action.CharacterAction
+import kotlinx.serialization.Serializable
 
-enum class EventOrder {
-    ActionFirst, MoveFirst
-}
-
+@Serializable
 class PlayerEvent(
     val selectedCard: Character,
     val move: Position,
@@ -17,4 +15,8 @@ class PlayerEvent(
 ) : QA() {
     override val code = 4
     override val description = "Here's my turn."
+
+    enum class EventOrder {
+        ActionFirst, MoveFirst
+    }
 }

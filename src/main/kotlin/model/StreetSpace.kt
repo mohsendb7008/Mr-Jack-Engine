@@ -11,9 +11,8 @@ class StreetSpace internal constructor(
     var tile: Tile? = null,
     val hasFixedTile: Boolean = false,
     character: Character? = null,
-    var investigationTile: InvestigationTile? = null,
-    informant: Informant? = null
-) : Cell(position, adjacentPositions.toList(), character, informant) {
+    var investigationTile: InvestigationTile? = null
+) : Cell(position, adjacentPositions.toList(), character) {
 
     companion object {
 

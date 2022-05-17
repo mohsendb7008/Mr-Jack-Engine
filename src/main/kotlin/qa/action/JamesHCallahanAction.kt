@@ -1,8 +1,10 @@
 package qa.action
 
 import model.Position
+import kotlinx.serialization.Serializable
 
-class JamesHCallahanAction(val id: Int, val positions: Pair<Position, Position>): CharacterAction {
+@Serializable
+class JamesHCallahanAction(val id: Int, val position: Position): CharacterAction {
     init {
         require(id in 1..2)
     }

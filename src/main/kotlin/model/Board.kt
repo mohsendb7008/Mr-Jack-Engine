@@ -7,6 +7,6 @@ object Board {
     ).associateBy { it.position }
 
     val tiles: Map<Position, Tile>
-        get() = (Tile.BuildingSite.streetSpaces + Tile.MetroEntrance.streetSpaces + Tile.GasLamp.streetSpaces + Tile.Park.streetSpaces).associate { it.position to it.tile!! }
+        get() = (StreetSpace.cells.values.filter { it.tile != null }).associate { it.position to it.tile!! }
 
 }
