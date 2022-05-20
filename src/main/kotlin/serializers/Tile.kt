@@ -29,6 +29,6 @@ object TileSerializer : KSerializer<Tile> {
 
 }
 
-fun Tile.Companion.deserialize(input: String) = json.decodeFromString<Tile>(input)
+fun Tile.Companion.fromJson(input: String) = json.decodeFromString<Tile>(input)
 
 fun Tile.toJson() = json.encodeToString(this)

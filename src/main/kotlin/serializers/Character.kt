@@ -8,8 +8,12 @@ import model.Character
 @Serializable
 @SerialName("Character")
 private class CharacterSurrogate(
-    val type: String, val isSuspect: Boolean = model.Character.values().first { it.name == type }.isSuspect
-)
+    val type: String, val isSuspect: Boolean = Character.values().first { it.name == type }.isSuspect
+) {
+    init {
+        require(type in Character.values().map { it.name })
+    }
+}
 
 object CharacterSerializer : KSerializer<Character> {
     override val descriptor = CharacterSurrogate.serializer().descriptor
@@ -25,6 +29,6 @@ object CharacterSerializer : KSerializer<Character> {
     }
 }
 
-fun Character.Companion.deserialize(input: String) = json.decodeFromString<Character>(input)
+fun Character.Companion.fromJson(input: String) = json.decodeFromString<Character>(input)
 
 fun Character.toJson() = json.encodeToString(this)

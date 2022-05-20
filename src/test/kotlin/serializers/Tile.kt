@@ -16,6 +16,6 @@ class Tile {
         val input = """
             { "type": "${Tile.GasLamp}" }
         """.trimIndent()
-        Tile.deserialize(input) mustBeEqualTo Tile.GasLamp
+        Tile.fromJson(input) mustBeEqualTo Tile.GasLamp
     }
 }

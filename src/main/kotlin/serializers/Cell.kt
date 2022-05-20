@@ -1,5 +1,7 @@
+@file:OptIn(ExperimentalSerializationApi::class)
 package serializers
 
+import exception.DeserializationNotSupportedException
 import kotlinx.serialization.*
 import kotlinx.serialization.descriptors.buildClassSerialDescriptor
 import kotlinx.serialization.encoding.Encoder
@@ -16,7 +18,6 @@ private class CellSurrogate(
     val informant: Informant? = null
 )
 
-@OptIn(ExperimentalSerializationApi::class)
 private class CellDefaultSerializer(val subclassName: String) : SerializationStrategy<Cell> {
     override val descriptor = buildClassSerialDescriptor(subclassName) {
         val desc = CellSurrogate.serializer().descriptor
@@ -37,6 +38,7 @@ private class CellDefaultSerializer(val subclassName: String) : SerializationStr
     }
 }
 
+@OptIn(ExperimentalSerializationApi::class)
 val cellSerializeModule = SerializersModule {
     polymorphicDefaultSerializer(Cell::class) {
         when (it) {
@@ -45,6 +47,9 @@ val cellSerializeModule = SerializersModule {
             is LandExit -> CellDefaultSerializer("LandExit")
             else -> null
         }
+    }
+    polymorphicDefaultDeserializer(Cell::class) {
+        throw DeserializationNotSupportedException(it.toString())
     }
 }
 

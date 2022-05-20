@@ -22,6 +22,6 @@ class Character {
                 "type": "${character.name}"
             }
         """.trimIndent()
-        Character.deserialize(input) mustBeEqualTo character
+        Character.fromJson(input) mustBeEqualTo character
     }
 }
