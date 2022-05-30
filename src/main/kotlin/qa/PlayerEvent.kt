@@ -4,9 +4,12 @@ import model.Character
 import model.Position
 import qa.action.CharacterAction
 import kotlinx.serialization.Serializable
+import kotlinx.serialization.decodeFromString
+import kotlinx.serialization.encodeToString
+import serializers.json
 
 @Serializable
-class PlayerEvent(
+data class PlayerEvent(
     val selectedCard: Character,
     val move: Position,
     val action: CharacterAction,
@@ -20,3 +23,7 @@ class PlayerEvent(
         ActionFirst, MoveFirst
     }
 }
+
+fun PlayerEvent.Companion.fromJson(input: String) = json.decodeFromString<PlayerEvent>(input)
+
+fun PlayerEvent.toJson() = json.encodeToString(this)

@@ -1,7 +1,9 @@
 package qa.action
 
+import kotlinx.serialization.SerialName
 import model.Position
 import kotlinx.serialization.Serializable
 
 @Serializable
-class EmmaGrantAction(val parkPlace: Position): CharacterAction
+@SerialName("EmmaGrantAction")
+data class EmmaGrantAction(val parkPlace: Position): CharacterAction()

@@ -1,9 +1,12 @@
 package qa
 
 import kotlinx.serialization.Serializable
+import kotlinx.serialization.decodeFromString
+import kotlinx.serialization.encodeToString
 import model.Cell
 import model.Character
 import model.VisibilityStatus
+import serializers.json
 
 @Serializable
 class GameTurn(
@@ -15,4 +18,12 @@ class GameTurn(
 ) : QA() {
     override val code = 3
     override val description = "Play your turn."
+    init {
+        require(round in 1..8)
+        require(turn in 1..4)
+    }
 }
+
+fun GameTurn.Companion.fromJson(input: String) = json.decodeFromString<GameTurn>(input)
+
+fun GameTurn.toJson() = json.encodeToString(this)

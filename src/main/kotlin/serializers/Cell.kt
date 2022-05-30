@@ -6,8 +6,9 @@ import kotlinx.serialization.*
 import kotlinx.serialization.descriptors.buildClassSerialDescriptor
 import kotlinx.serialization.encoding.Encoder
 import kotlinx.serialization.encoding.encodeStructure
-import kotlinx.serialization.modules.SerializersModule
+import kotlinx.serialization.modules.SerializersModuleBuilder
 import model.*
+import qa.action.*
 
 @Serializable
 @SerialName("Cell")
@@ -38,8 +39,7 @@ private class CellDefaultSerializer(val subclassName: String) : SerializationStr
     }
 }
 
-@OptIn(ExperimentalSerializationApi::class)
-val cellSerializeModule = SerializersModule {
+val cellSerializerModuleBuilder: SerializersModuleBuilder.() -> Unit = {
     polymorphicDefaultSerializer(Cell::class) {
         when (it) {
             is QuaysideSpace -> CellDefaultSerializer("QuaysideSpace")

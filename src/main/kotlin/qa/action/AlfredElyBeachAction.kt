@@ -1,7 +1,9 @@
 package qa.action
 
+import kotlinx.serialization.SerialName
 import model.Position
 import kotlinx.serialization.Serializable
 
 @Serializable
-class AlfredElyBeachAction(val metroPlace: Position): CharacterAction
+@SerialName("AlfredElyBeachAction")
+data class AlfredElyBeachAction(val metroPlace: Position): CharacterAction()

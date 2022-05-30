@@ -1,7 +1,9 @@
 package qa.action
 
+import kotlinx.serialization.SerialName
 import model.Character
 import kotlinx.serialization.Serializable
 
 @Serializable
-class MonkEastmanAction(val character: Character): CharacterAction
+@SerialName("MonkEastmanAction")
+data class MonkEastmanAction(val character: Character): CharacterAction()
