@@ -1,14 +1,16 @@
 package qa
 
-import model.Character
-import model.Position
-import qa.action.CharacterAction
+import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.decodeFromString
 import kotlinx.serialization.encodeToString
+import model.Character
+import model.Position
+import qa.action.CharacterAction
 import serializers.json
 
 @Serializable
+@SerialName("PlayerEvent")
 data class PlayerEvent(
     val selectedCard: Character,
     val move: Position,
@@ -16,7 +18,6 @@ data class PlayerEvent(
     val order: EventOrder,
     val informantPosition: Position?
 ) : QA() {
-    override val code = 4
     override val description = "Here's my turn."
 
     enum class EventOrder {

@@ -1,13 +1,14 @@
 package qa
-import model.Character
+import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.decodeFromString
 import kotlinx.serialization.encodeToString
+import model.Character
 import serializers.json
 
 @Serializable
+@SerialName("WhoIsJack")
 data class WhoIsJack(val character: Character): QA() {
-    override val code = 2
     override val description = "Mr jack is: ${character.name}."
 }
 

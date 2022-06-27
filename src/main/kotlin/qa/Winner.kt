@@ -1,14 +1,15 @@
 package qa
 
-import model.Role
+import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.decodeFromString
 import kotlinx.serialization.encodeToString
+import model.Role
 import serializers.json
 
 @Serializable
+@SerialName("Winner")
 data class Winner(val role: Role): QA() {
-    override val code = 8
     override val description = "$role won."
 }
 

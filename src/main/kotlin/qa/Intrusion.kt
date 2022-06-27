@@ -1,5 +1,6 @@
 package qa
 
+import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.decodeFromString
 import kotlinx.serialization.encodeToString
@@ -8,8 +9,8 @@ import serializers.json
 
 @Suppress("MemberVisibilityCanBePrivate")
 @Serializable
+@SerialName("Intrusion")
 data class Intrusion(val innocent: Character): QA() {
-    override val code = 5
     override val description = "The innocent character is $innocent"
 }
 
