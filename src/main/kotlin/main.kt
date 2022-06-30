@@ -1,4 +1,5 @@
 
+import exception.GameFinishedException
 import io.ktor.network.selector.SelectorManager
 import io.ktor.network.sockets.aSocket
 import io.ktor.util.logging.*
@@ -29,7 +30,11 @@ suspend fun main() {
     runCatching {
         Game.run()
     }.onFailure {
+        if (it is GameFinishedException) {
+            logger.info("Game finished without error.")
+            return@onFailure
+        }
         logger.error(it)
-        Game.finish(if (Game.playerTurn == Role.Jack) Role.Sherlock else Role.Jack, it.message.toString())
+        Game.finish(if (Game.playerTurn == Role.Jack) Role.Sherlock else Role.Jack, it.message.toString(), true)
     }
 }

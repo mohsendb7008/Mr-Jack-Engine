@@ -1,5 +1,6 @@
 package logic
 
+import exception.GameFinishedException
 import model.*
 import mu.KLogger
 import qa.*
@@ -114,6 +115,12 @@ object Game {
                     handlePlayerEventAction(event.action)
                 }
             }
+            if (playerTurn == Role.Jack) {
+                val cell = Jack.cell
+                if (cell is LandExit || (cell is PortSpace && cell.hasSteamer)) {
+                    finish(Role.Jack, "Jack escaped!")
+                }
+            }
             event.informantPosition?.let {
                 Informant.moveTo(Board.cells[it]!!)
                 player.send(Intrusion(Informant.leakInnocent()))
@@ -126,7 +133,7 @@ object Game {
         finish(Role.Jack, "8 rounds have been played and no escape or condemn has happened.")
     }
 
-    suspend fun finish(winner: Role, reason: String) {
+    suspend fun finish(winner: Role, reason: String, silent: Boolean = false) {
         logger.info(reason)
         logger.info("$winner (${ if (winner == Role.Jack) playerOfJack.username else playerOfSherlock.username }) won!")
         val qa = Winner(winner)
@@ -137,6 +144,9 @@ object Game {
         runCatching {
             playerOfSherlock.send(qa)
             playerOfSherlock.close()
+        }
+        if (!silent) {
+            throw GameFinishedException()
         }
     }
 
