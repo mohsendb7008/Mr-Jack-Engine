@@ -8,111 +8,79 @@ enum class Character(isVisible: Boolean) {
 
     AlfredElyBeach(true) {
 
-        private fun constructMetroEntrance(cell: StreetSpace) {
+        @Suppress("unused")
+        fun constructMetroEntranceAction(cell: StreetSpace) {
             // TODO Add validations
             cell.tile = Tile.MetroEntrance
         }
-
-        override fun performAction(arg1: Any, arg2: Any?) {
-            constructMetroEntrance(arg1 as StreetSpace)
-        }
-
     },
 
     CloudRider(true) {
 
         override fun moveTo(cell: Cell) = TODO()
 
-        private fun constructBuildingSite(cell: StreetSpace) {
+        @Suppress("unused")
+        fun constructBuildingSiteAction(cell: StreetSpace) {
             // TODO Add validations
             cell.tile = Tile.BuildingSite
         }
-
-        override fun performAction(arg1: Any, arg2: Any?) {
-            constructBuildingSite(arg1 as StreetSpace)
-        }
-
     },
 
     LewisHowardLatimer(true) {
 
-        private fun installGasLamp(cell: StreetSpace) {
+        @Suppress("unused")
+        fun installGasLampAction(cell: StreetSpace) {
             // TODO Add validations
             cell.tile = Tile.GasLamp
         }
-
-        override fun performAction(arg1: Any, arg2: Any?) {
-            installGasLamp(arg1 as StreetSpace)
-        }
-
     },
 
     MrsEmmaGrant(true) {
 
-        private fun createPark(cell: StreetSpace) {
+        @Suppress("unused")
+        fun createParkAction(cell: StreetSpace) {
             // TODO Add validations
             cell.tile = Tile.Park
         }
-
-        override fun performAction(arg1: Any, arg2: Any?) {
-            createPark(arg1 as StreetSpace)
-        }
-
     },
 
     JamesHCallahan(true) {
 
-        private fun moveInvestigationTile(tile: InvestigationTile, cells: Pair<StreetSpace, StreetSpace>) {
+        @Suppress("unused")
+        fun moveInvestigationTileAction(tile: InvestigationTile, cells: Pair<StreetSpace, StreetSpace>) {
             // TODO Add validations
             cells.first.investigationTile = tile
             cells.second.investigationTile = tile
         }
-
-        @Suppress("UNCHECKED_CAST")
-        override fun performAction(arg1: Any, arg2: Any?) {
-            moveInvestigationTile(arg1 as InvestigationTile, arg2 as Pair<StreetSpace, StreetSpace>)
-        }
-
     },
 
     MonkEastman(false) {
 
-        private fun moveAnotherCharacter(character: Character, cell: Cell) {
+        @Suppress("unused")
+        fun moveAnotherCharacterAction(character: Character, cell: Cell) {
             // TODO Add validations
             character.moveTo(cell)
-        }
-
-        override fun performAction(arg1: Any, arg2: Any?) {
-            moveAnotherCharacter(arg1 as Character, arg2 as Cell)
         }
 
     },
 
     FrancisJTumblety(false) {
 
-        private fun hypnotize(adjacent: Character, target: Character) {
+        @Suppress("unused")
+        fun hypnotizeAction(adjacent: Character, target: Character) {
             // TODO Add validations
             adjacent.moveTo(target.cell.also { target.moveTo(adjacent.cell) })
         }
-
-        override fun performAction(arg1: Any, arg2: Any?) {
-            hypnotize(arg1 as Character, arg2 as Character)
-        }
-
     },
 
     EdwardSmith(true) {
 
-        private fun moveSteamer(from: PortSpace, to: PortSpace) {
+        @Suppress("unused")
+        fun moveSteamerAction(from: PortSpace, to: PortSpace) {
             // TODO Add validations
             from.hasSteamer = false
             to.hasSteamer = true
         }
-
-        override fun performAction(arg1: Any, arg2: Any?) {
-            moveSteamer(arg1 as PortSpace, arg2 as PortSpace)
-        }
-
     };
 
     val cell: Cell
@@ -130,7 +98,11 @@ enum class Character(isVisible: Boolean) {
         cell.character = this
     }
 
-    abstract fun performAction(arg1: Any, arg2: Any? = null)
+    fun performAction(arg1: Any, arg2: Any? = null) {
+        val actionMethod = this::class.java.declaredMethods.find { it.name.endsWith("Action") }
+        val paramsArray = arrayOf(arg1, arg2)
+        actionMethod?.invoke(this, *paramsArray.filterNotNull().toTypedArray())
+    }
 
     fun toggleVisibility() {
         // TODO validate
