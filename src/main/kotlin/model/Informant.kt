@@ -1,6 +1,7 @@
 package model
 
 import kotlinx.serialization.Serializable
+import logic.Game
 import removeRandom
 import serializers.InformantSerializer
 
@@ -11,7 +12,9 @@ object Informant {
 
     private val innocents: MutableList<Character> = Character.values().toMutableList().also { it.shuffle() }
 
-    fun removeJack() = innocents.remove(Game.Jack)
+    init {
+        innocents.remove(Game.Jack)
+    }
 
     fun leakInnocent(): Character = innocents.removeRandom() // TODO Add validations (mute)
 

@@ -1,7 +1,7 @@
 import exception.mustBeEqualTo
 import model.CardDealer
 import model.Character
-import model.Game
+import logic.Game
 import kotlin.test.Test
 
 class CardDealerTest {

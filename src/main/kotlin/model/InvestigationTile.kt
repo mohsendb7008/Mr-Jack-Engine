@@ -10,6 +10,13 @@ class InvestigationTile private constructor() {
     companion object {
         val investigationTile1 = InvestigationTile()
         val investigationTile2 = InvestigationTile()
+
+        fun withId(id: Int) =
+            when (id) {
+                1 -> investigationTile1
+                2 -> investigationTile2
+                else -> throw IllegalArgumentException("ID of Investigation Tile should be 1 or 2.")
+            }
     }
 
     val blockedCells: Pair<StreetSpace, StreetSpace>

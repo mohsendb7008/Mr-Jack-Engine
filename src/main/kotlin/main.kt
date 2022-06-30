@@ -1,8 +1,10 @@
 
 import io.ktor.network.selector.SelectorManager
 import io.ktor.network.sockets.aSocket
+import io.ktor.util.logging.*
 import kotlinx.coroutines.Dispatchers
 import logic.Player
+import logic.Game
 import model.Role
 import mu.KotlinLogging
 import qa.UsernameRole
@@ -18,9 +20,16 @@ suspend fun main() {
     val p2 = Player(serverSocket.accept())
     logger.info("Player 2 connected")
     p1.send(UsernameRole(Role.Jack))
-    val player1 = (p1.receive() as UsernameWrapper).username
-    logger.debug("Player1 username is $player1")
+    p1.username = (p1.receive() as UsernameWrapper).username
+    logger.debug("Player1 username is ${p1.username}")
     p2.send(UsernameRole(Role.Sherlock))
-    val player2 = (p2.receive() as UsernameWrapper).username
-    logger.debug("Player2 username is $player2")
+    p2.username = (p2.receive() as UsernameWrapper).username
+    logger.debug("Player2 username is ${p2.username}")
+    Game.init(p1, p2, logger)
+    runCatching {
+        Game.run()
+    }.onFailure {
+        logger.error(it)
+        Game.finish(if (Game.playerTurn == Role.Jack) Role.Sherlock else Role.Jack, it.message.toString())
+    }
 }

@@ -27,4 +27,5 @@ class Player(private val socket: Socket) {
     fun close() {
         socket.close()
     }
+    lateinit var username: String
 }

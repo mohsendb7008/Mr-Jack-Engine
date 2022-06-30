@@ -8,9 +8,13 @@ enum class Character(isVisible: Boolean) {
 
     AlfredElyBeach(true) {
 
-        fun constructMetroEntrance(cell: StreetSpace) {
+        private fun constructMetroEntrance(cell: StreetSpace) {
             // TODO Add validations
             cell.tile = Tile.MetroEntrance
+        }
+
+        override fun performAction(arg1: Any, arg2: Any?) {
+            constructMetroEntrance(arg1 as StreetSpace)
         }
 
     },
@@ -19,65 +23,94 @@ enum class Character(isVisible: Boolean) {
 
         override fun moveTo(cell: Cell) = TODO()
 
-        fun constructBuildingSite(cell: StreetSpace) {
+        private fun constructBuildingSite(cell: StreetSpace) {
             // TODO Add validations
             cell.tile = Tile.BuildingSite
+        }
+
+        override fun performAction(arg1: Any, arg2: Any?) {
+            constructBuildingSite(arg1 as StreetSpace)
         }
 
     },
 
     LewisHowardLatimer(true) {
 
-        fun installGasLamp(cell: StreetSpace) {
+        private fun installGasLamp(cell: StreetSpace) {
             // TODO Add validations
             cell.tile = Tile.GasLamp
+        }
+
+        override fun performAction(arg1: Any, arg2: Any?) {
+            installGasLamp(arg1 as StreetSpace)
         }
 
     },
 
     MrsEmmaGrant(true) {
 
-        fun createPark(cell: StreetSpace) {
+        private fun createPark(cell: StreetSpace) {
             // TODO Add validations
             cell.tile = Tile.Park
+        }
+
+        override fun performAction(arg1: Any, arg2: Any?) {
+            createPark(arg1 as StreetSpace)
         }
 
     },
 
     JamesHCallahan(true) {
 
-        fun moveInvestigationTile(tile: InvestigationTile, cells: Pair<StreetSpace, StreetSpace>) {
+        private fun moveInvestigationTile(tile: InvestigationTile, cells: Pair<StreetSpace, StreetSpace>) {
             // TODO Add validations
             cells.first.investigationTile = tile
             cells.second.investigationTile = tile
+        }
+
+        @Suppress("UNCHECKED_CAST")
+        override fun performAction(arg1: Any, arg2: Any?) {
+            moveInvestigationTile(arg1 as InvestigationTile, arg2 as Pair<StreetSpace, StreetSpace>)
         }
 
     },
 
     MonkEastman(false) {
 
-        fun moveAnotherCharacter(character: Character, cell: Cell) {
+        private fun moveAnotherCharacter(character: Character, cell: Cell) {
             // TODO Add validations
             character.moveTo(cell)
+        }
+
+        override fun performAction(arg1: Any, arg2: Any?) {
+            moveAnotherCharacter(arg1 as Character, arg2 as Cell)
         }
 
     },
 
     FrancisJTumblety(false) {
 
-        fun hypnotize(adjacent: Character, target: Character) {
+        private fun hypnotize(adjacent: Character, target: Character) {
             // TODO Add validations
             adjacent.moveTo(target.cell.also { target.moveTo(adjacent.cell) })
+        }
+
+        override fun performAction(arg1: Any, arg2: Any?) {
+            hypnotize(arg1 as Character, arg2 as Character)
         }
 
     },
 
     EdwardSmith(true) {
 
-        fun moveSteamer(from: PortSpace, to: PortSpace) {
+        private fun moveSteamer(from: PortSpace, to: PortSpace) {
             // TODO Add validations
             from.hasSteamer = false
             to.hasSteamer = true
+        }
+
+        override fun performAction(arg1: Any, arg2: Any?) {
+            moveSteamer(arg1 as PortSpace, arg2 as PortSpace)
         }
 
     };
@@ -96,6 +129,8 @@ enum class Character(isVisible: Boolean) {
         this.cell.character = null
         cell.character = this
     }
+
+    abstract fun performAction(arg1: Any, arg2: Any? = null)
 
     fun toggleVisibility() {
         // TODO validate

@@ -28,7 +28,7 @@ class PlayerEventTest {
                 )
                 Character.JamesHCallahan -> JamesHCallahanAction(
                     id = 1,
-                    position = Position(1, 2)
+                    positions = Position(1, 2) to Position(1, 3)
                 )
                 Character.MonkEastman -> MonkEastmanAction(
                     character = Character.values().random()
