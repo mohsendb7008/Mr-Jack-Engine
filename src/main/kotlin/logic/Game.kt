@@ -127,6 +127,7 @@ object Game {
             }
             if (turn == 4) {
                 playerOfSherlock.send(MrJackVisibility(isJackVisible))
+                Character.values().filter { it.isVisible != isJackVisible }.forEach(Character::exonerate)
             }
             nextCycle()
         }
