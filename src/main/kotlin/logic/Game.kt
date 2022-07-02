@@ -76,6 +76,15 @@ object Game {
         }
     }
 
+    private fun calculateVisibility(cell: Cell): Boolean {
+        if (cell is StreetSpace) {
+            if (cell.tile == Tile.Park)
+                return false
+            return cell.adjacentPositions.map { Board.cells[it]!! }.filterIsInstance<StreetSpace>().any { it.tile == Tile.GasLamp || it.character != null }
+        }
+        return false
+    }
+
     suspend fun run() {
         playerOfJack.send(WhoIsJack(Jack))
         while (!endOfCycles) {
@@ -88,7 +97,6 @@ object Game {
                     round = round,
                     turn = turn,
                     map = Board.cells.values.toList(),
-                    visibilityStatus = if (isJackVisible) VisibilityStatus.Day else VisibilityStatus.Night,
                     remainingCards = deckOfCards
                 )
             )
@@ -124,6 +132,11 @@ object Game {
             event.informantPosition?.let {
                 Informant.moveTo(Board.cells[it]!!)
                 player.send(Intrusion(Informant.leakInnocent()))
+            }
+            Character.values().forEach { character ->
+                if (character.isVisible != calculateVisibility(character.cell)) {
+                    character.toggleVisibility()
+                }
             }
             if (turn == 4) {
                 playerOfSherlock.send(MrJackVisibility(isJackVisible))

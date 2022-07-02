@@ -6,7 +6,6 @@ import kotlinx.serialization.decodeFromString
 import kotlinx.serialization.encodeToString
 import model.Cell
 import model.Character
-import model.VisibilityStatus
 import serializers.json
 
 @Serializable
@@ -15,7 +14,6 @@ class GameTurn(
     val round: Int,
     val turn: Int,
     val map: List<Cell>,
-    val visibilityStatus: VisibilityStatus,
     val remainingCards: List<Character>
 ) : QA() {
     override val description = "Play your turn."
