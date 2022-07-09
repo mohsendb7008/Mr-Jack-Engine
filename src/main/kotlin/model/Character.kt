@@ -1,5 +1,6 @@
 package model
 
+import exception.mustBeAbleToMoveTo
 import kotlinx.serialization.Serializable
 import serializers.CharacterSerializer
 
@@ -16,8 +17,6 @@ enum class Character(isVisible: Boolean) {
     },
 
     CloudRider(true) {
-
-        override fun moveTo(cell: Cell) = TODO()
 
         @Suppress("unused")
         fun constructBuildingSiteAction(cell: StreetSpace) {
@@ -92,8 +91,8 @@ enum class Character(isVisible: Boolean) {
     var isSuspect: Boolean = true
         private set
 
-    open fun moveTo(cell: Cell) {
-        // TODO validate
+    fun moveTo(cell: Cell) {
+        this mustBeAbleToMoveTo cell
         this.cell.character = null
         cell.character = this
     }

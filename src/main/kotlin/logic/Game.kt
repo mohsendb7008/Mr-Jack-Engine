@@ -110,6 +110,11 @@ object Game {
             }
             val event = response as PlayerEvent
             popFromDeckOfCards(event.selectedCard)
+            Board.cells[event.move]!!.character?.let {
+                if (it != event.selectedCard) {
+                    TODO("Handle condemn just for sherlock")
+                }
+            }
             if (event.action is MonkEastmanAction) {
                 event.action.character.moveTo(Board.cells[event.move]!!)
             }
